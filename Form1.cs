@@ -30,6 +30,8 @@ namespace Per
             int[] count_diametr = new int[3];
             char[] my_separator = new char[] {'-', ','};
             //создает массив из первого диаметра, последнего диаметра и количества диаметров
+            //
+            //Заментить!!! считать все диаметры. 12-23-35
             string[] diametrs = input.Split(my_separator, StringSplitOptions.RemoveEmptyEntries);
 
             count_diametr[0] = int.Parse(diametrs[0]);//первый диаметр
@@ -207,6 +209,8 @@ namespace Per
                     d++;
                 }
                 //если несколько деревьев и несколько диаметров
+                //
+                //здесь добавить разбежку например 25-35-45
                 else if (spisok[i, 0] != "1" && count_d[2] > 1)
                 {
                     diametr[d] = count_d[1];
