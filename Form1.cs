@@ -213,20 +213,18 @@ namespace Per
                 //здесь добавить разбежку например 25-35-45
                 else if (spisok[i, 0] != "1" && length > 1)
                 {
-                    diametr[d] = count_d[1];
-                    if (spisok[i, 2].Contains("ЛЭП"))
-                    {
-                        diametr_lep[d] = count_d[1];
-                    }
-                    d++;
+                    int der = length;
                     int col = int.Parse(spisok[i, 0]);
-                    for (int c = 0; c < col - 1; ++c)
+                    for (int c = col-1; c >= 0; --c)
                     {
-                        diametr[d] = count_d[0];
+                        
+                        diametr[d] = count_d[der - 1];
+                       
                         if (spisok[i, 2].Contains("ЛЭП"))
                         {
-                            diametr_lep[d] = count_d[0];
+                            diametr_lep[d] = count_d[der - 1];
                         }
+                        der--;
                         d++;
                     }
 
