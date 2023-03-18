@@ -27,17 +27,16 @@ namespace Per
         //Количество диаметров, разделенных разделителями
         public static int[] Count_diametr(string input)
         {
-            int[] count_diametr = new int[3];
             char[] my_separator = new char[] {'-', ','};
-            //создает массив из первого диаметра, последнего диаметра и количества диаметров
+            //int[] count_diametr;
             //
-            //Заментить!!! считать все диаметры. 12-23-35
+            //считать все диаметры. 12-23-35
             string[] diametrs = input.Split(my_separator, StringSplitOptions.RemoveEmptyEntries);
-
-            count_diametr[0] = int.Parse(diametrs[0]);//первый диаметр
-            count_diametr[1] = int.Parse(diametrs[diametrs.Length-1]);//последний диаметр
-            count_diametr[2] = diametrs.Length;//количество диаметров
-            
+            int length = diametrs.Length;
+            int[] count_diametr = new int[length];
+            for (int i = 0; i < length; ++i)
+                count_diametr[i] = int.Parse(diametrs[i]);//последний диаметр
+                        
             return count_diametr;
         }
 
@@ -172,46 +171,47 @@ namespace Per
             {
                 //количество диаметров в записи (12-22) даст 2
                 int[] count_d = Count_diametr(spisok[i, 1]);
+                int length = count_d.Length;
 
-                //если одно дерево и один диаметр
-                if (spisok[i, 0] == "1" && count_d[2] == 1)
+                 //если одно дерево и один диаметр
+                if (spisok[i, 0] == "1" && length == 1)
                 {
-                    diametr[d] = count_d[1];
+                    diametr[d] = count_d[0];
                     if (spisok[i, 2].Contains("ЛЭП"))
                         {
-                           diametr_lep[d] = count_d[1];
+                           diametr_lep[d] = count_d[0];
                         }
                     d++;
                 }
                 //если несколько деревьев и один диаметр
-                else if (spisok[i, 0] != "1" && count_d[2] == 1)
+                else if (spisok[i, 0] != "1" && length == 1)
                 {
                     int col = int.Parse(spisok[i, 0]);
                     for (int c = 0; c < col; ++c)
                     {
-                        diametr[d] = count_d[1];
+                        diametr[d] = count_d[0];
                         if (spisok[i, 2].Contains("ЛЭП"))
                         {
-                            diametr_lep[d] = count_d[1];
+                            diametr_lep[d] = count_d[0];
                         }
                         d++;
                     }
 
                 }
                 //если одно дерево и несколько диаметров
-                else if (spisok[i, 0] == "1" && count_d[2] > 1)
+                else if (spisok[i, 0] == "1" && length > 1)
                 {
-                    diametr[d] = count_d[1];
+                    diametr[d] = count_d[length-1];
                     if (spisok[i, 2].Contains("ЛЭП"))
                     {
-                        diametr_lep[d] = count_d[1];
+                        diametr_lep[d] = count_d[length-1];
                     }
                     d++;
                 }
                 //если несколько деревьев и несколько диаметров
                 //
                 //здесь добавить разбежку например 25-35-45
-                else if (spisok[i, 0] != "1" && count_d[2] > 1)
+                else if (spisok[i, 0] != "1" && length > 1)
                 {
                     diametr[d] = count_d[1];
                     if (spisok[i, 2].Contains("ЛЭП"))
