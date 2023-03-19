@@ -18,7 +18,8 @@ namespace Per
         {
             public int[] all_arbor;
             public int[] lep_arbor;
-            
+            public int length_arbor;
+
             public int[] all_trunk;
             public int[] lep_trunk;
             
@@ -217,23 +218,37 @@ namespace Per
                     int col = int.Parse(spisok[i, 0]);
                     for (int c = col-1; c >= 0; --c)
                     {
-                        
-                        diametr[d] = count_d[der - 1];
-                       
-                        if (spisok[i, 2].Contains("ЛЭП"))
+                        if (der <1)
                         {
-                            diametr_lep[d] = count_d[der - 1];
+                            diametr[d] = count_d[0];
+                            if (spisok[i, 2].Contains("ЛЭП"))
+                            {
+                                diametr_lep[d] = count_d[0];
+                            }
+                            der--;
+                            d++;
                         }
-                        der--;
-                        d++;
-                    }
 
+                        else
+                        {
+                            diametr[d] = count_d[der - 1];
+                            if (spisok[i, 2].Contains("ЛЭП"))
+                            {
+                                diametr_lep[d] = count_d[der - 1];
+                            }
+                            der--;
+                            d++;
+
+                        }
+
+                    }
 
                 }
             }
 
             timber.all_arbor = diametr;
             timber.lep_arbor = diametr_lep;
+            timber.length_arbor = diametr.Length;
             return timber;
         }
 
@@ -251,11 +266,12 @@ namespace Per
                 var verify_rows = new List<uint>(Verify_data(ws));
                 string[,] data_arbor = (Read_xls_data(ws, verify_rows));
 
-                label5.Text = verify_rows.Count.ToString();
-                label6.Text = Count_diametr("12, 18, 22")[2].ToString();
-
+                label6.Text = verify_rows.Count.ToString();
+                
                 //инициализация структуры и заполнение ее массивами диаметров
                 My_timber timber = Diametr(data_arbor);
+                //количество деревьев
+                label5.Text = timber.length_arbor.ToString();
 
 
                 //удаляет все строки из таблицы

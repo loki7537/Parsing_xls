@@ -89,11 +89,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 19);
+            this.label1.Location = new System.Drawing.Point(22, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.Size = new System.Drawing.Size(96, 13);
             this.label1.TabIndex = 2;
-            this.label1.Text = "данные";
+            this.label1.Text = "Прочитано строк:";
             // 
             // dataGridView1
             // 
@@ -242,11 +242,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(118, 76);
+            this.label2.Location = new System.Drawing.Point(67, 76);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(10, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "label2";
+            this.label2.Text = "-";
             // 
             // openFileDialog1
             // 
@@ -258,27 +258,27 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(21, 76);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 13);
+            this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Число строк";
+            this.label3.Text = "Файл:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(297, 76);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 13);
+            this.label4.Size = new System.Drawing.Size(97, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Число столбцов";
+            this.label4.Text = "Учтено деревьев:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(459, 76);
+            this.label5.Location = new System.Drawing.Point(410, 76);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.Size = new System.Drawing.Size(13, 13);
             this.label5.TabIndex = 7;
-            this.label5.Text = "label5";
+            this.label5.Text = "0";
             // 
             // dataGridView2
             // 
@@ -361,11 +361,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(118, 19);
+            this.label6.Location = new System.Drawing.Point(129, 19);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.Size = new System.Drawing.Size(13, 13);
             this.label6.TabIndex = 9;
-            this.label6.Text = "label6";
+            this.label6.Text = "0";
             // 
             // Form1
             // 
