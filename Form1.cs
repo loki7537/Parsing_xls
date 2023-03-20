@@ -14,11 +14,26 @@ namespace Per
         readonly string[] stupeni = new string[] { "<10", "12-20", "22-30", "32-40", "42-50", "52-60", "62-70", "72-90", ">90" };
         //readonly List <string> stupeni = new List<string>() { "<10", "12-20", "22-30", "32-40", "42-50", "52-60", "62-70", "72-90", ">90" };
 
+        public static int M_not_nul(int[] mas)
+        {
+            int col = 0;
+            foreach (var i in mas)
+            {
+                if (i != 0)
+                {
+                    col++;
+                }
+            }
+            return col;
+
+        }
+
         public struct My_timber
         {
             public int[] all_arbor;
             public int[] lep_arbor;
             public int length_arbor;
+            public int length_arbor_lep;
 
             public int[] all_trunk;
             public int[] lep_trunk;
@@ -249,6 +264,7 @@ namespace Per
             timber.all_arbor = diametr;
             timber.lep_arbor = diametr_lep;
             timber.length_arbor = diametr.Length;
+            timber.length_arbor_lep = M_not_nul(diametr_lep);
             return timber;
         }
 
@@ -272,7 +288,9 @@ namespace Per
                 My_timber timber = Diametr(data_arbor);
                 //количество деревьев
                 label5.Text = timber.length_arbor.ToString();
-
+                label7.Text = timber.length_arbor.ToString();
+                label8.Text = timber.length_arbor_lep.ToString();
+                label9.Text = (timber.length_arbor - timber.length_arbor_lep).ToString();
 
                 //удаляет все строки из таблицы
                 dataGridView1.Rows.Clear();
